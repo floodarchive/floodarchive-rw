@@ -1,4 +1,4 @@
-# floodarchive-rw [![Original repo:](https://github.com/floodarchive/floodarchive.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/floodarchive/floodarchive.github.io/actions/workflows/main.yml)
+# floodarchive-rw
 
 ### Build With
 
