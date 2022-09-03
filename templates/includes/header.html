@@ -1,0 +1,21 @@
+<header>
+    <nav class="d-flex">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">floodarchive</a>
+        </div>
+        <ul class="d-flex">
+            <li><a href="">about</a></li>
+            <li>
+                <form action="">
+                    <input
+                        type="search"
+                        name="search"
+                        class="border-2"
+                        id="searchInput"
+                    />
+                    <button type="submit" class="border-2">Search</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>

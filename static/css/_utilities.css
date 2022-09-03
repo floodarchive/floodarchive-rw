@@ -1,0 +1,28 @@
+:root {
+    --body-bg-color: #0f0f0f;
+    --header-bg-color: #1f1f1f;
+    --post-bg-color: #161616;
+    --text-color: #fff;
+    --border-color: #333;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--body-bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.border-2 {
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}

@@ -1,0 +1,36 @@
+main .title {
+    margin-top: 30px;
+    padding: 20px 0;
+    background: var(--post-bg-color);
+    text-align: center;
+}
+
+.post {
+    padding: 10px 20px;
+    margin-top: 15px;
+    background: var(--post-bg-color);
+}
+
+.post .header {
+    font-size: 10px;
+    opacity: 0.5;
+}
+
+.post .header .link::after {
+    content: "\2022";
+}
+
+.post .body .topic h1 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.post .body .message p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.post .body,
+.post .body .message {
+    margin-top: 30px;
+}
