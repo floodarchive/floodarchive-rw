@@ -12,35 +12,27 @@
         <main>
             <div class="container">
                 <div class="title border-2">
-                    <div><b>Total flood:</b> 1121</div>
-                    <div><b>Last build date:</b> Sat Aug 27 01:59:07 2022</div>
+                    <div><b>Total flood:</b> {{ submissions|length }}</div>
+                    <div><b>Last build date:</b> {{ last_build_date }}</div>
                 </div>
+                {% for submission in submissions %}
                 <div class="post border-2">
                     <div class="header">
                         <span class="link">
-                            <a href="" rel="nofollow"><b>reddit</b></a>
+                            <a href="{{ submission.full_link }}" rel="nofollow"
+                                ><b>reddit</b></a
+                            >
                         </span>
-                        <span class="created">Wed Jan 29 16:09:48 2020</span>
+                        <span class="created">{{ submission.created }}</span>
                     </div>
                     <div class="body">
-                        <div class="topic"><h1>LOREM IPSUM</h1></div>
-                        <div class="message">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Nemo vero aliquam, ullam
-                                assumenda in recusandae reiciendis,
-                                reprehenderit architecto, est quo delectus
-                                voluptate eos tempora debitis excepturi modi?
-                                Explicabo, est totam? Lorem ipsum dolor sit amet
-                                consectetur, adipisicing elit. Nemo vero
-                                aliquam, ullam assumenda in recusandae
-                                reiciendis, reprehenderit architecto, est quo
-                                delectus voluptate eos tempora debitis excepturi
-                                modi? Explicabo, est totam?
-                            </p>
+                        <div class="topic"><h1>{{ submission.title }}</h1></div>
+                        <div class="message md">
+                            <p>{{ submission.selftext }}</p>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </main>
     </body>

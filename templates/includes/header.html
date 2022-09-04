@@ -4,7 +4,7 @@
             <a href="{{ url_for('index') }}">floodarchive</a>
         </div>
         <ul class="d-flex">
-            <li><a href="">about</a></li>
+            <li><a href="{{ url_for('about') }}">about</a></li>
             <li>
                 <form action="">
                     <input
@@ -12,6 +12,7 @@
                         name="search"
                         class="border-2"
                         id="searchInput"
+                        placeholder="Search..."
                     />
                     <button type="submit" class="border-2">Search</button>
                 </form>
