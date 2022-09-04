@@ -26,3 +26,84 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 5px;
 }
+
+/* Markdown */
+
+.md h1 {
+    font-size: 22px;
+}
+.md h2 {
+    font-size: 20px;
+}
+.md h3 {
+    font-size: 18px;
+}
+.md h4 {
+    font-size: 16px;
+}
+.md h5 {
+    font-size: 14px;
+}
+.md h6 {
+    font-size: 12px;
+}
+
+.md p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.md blockquote {
+    padding: 10px;
+    background: #161616;
+    margin: 4px 0 4px 5px;
+    border-left: 4px solid #333;
+}
+
+.md a,
+.md a * {
+    color: aqua;
+}
+
+.md .md-spoiler-text {
+    background: #333;
+    color: transparent;
+}
+
+.md .md-spoiler-text:hover {
+    color: white;
+    background: #222;
+}
+
+.md li {
+    margin: 5px 0;
+}
+
+.md pre {
+    padding: 20px;
+    overflow: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: #1f1f1f;
+}
+
+.md table {
+    margin: 5px;
+    overflow-x: auto;
+}
+
+.md code {
+    font-size: 14px;
+    font-family: monospace, sans-serif;
+}
+
+.md hr {
+    border: 0px;
+    height: 1px;
+    margin: 8px 0px;
+    border-top: 1px solid #333;
+}
+
+.md code:not(.md pre > code) {
+    background: #333;
+}

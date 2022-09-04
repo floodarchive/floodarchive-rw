@@ -25,11 +25,6 @@ main .title {
     font-weight: 500;
 }
 
-.post .body .message p {
-    font-size: 15px;
-    opacity: 0.9;
-}
-
 .post .body,
 .post .body .message {
     margin-top: 30px;
