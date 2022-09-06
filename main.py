@@ -4,6 +4,7 @@ from json import loads
 from markdown import markdown
 from urllib3 import PoolManager
 from datetime import datetime as dt
+from db_connection import cursor
 
 app = Flask(__name__)
 
@@ -57,3 +58,6 @@ def index():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+if __name__ == "__main__":
+    app.run()
