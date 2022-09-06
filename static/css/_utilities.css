@@ -29,6 +29,10 @@ body {
 
 /* Markdown */
 
+.md {
+    overflow-wrap: break-word;
+}
+
 .md h1 {
     font-size: 22px;
 }
