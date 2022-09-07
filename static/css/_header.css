@@ -18,11 +18,25 @@ header nav ul {
 
 header nav ul li:last-child input[type="search"] {
     padding: 5px 15px;
+    background: var(--body-bg-color);
+    width: 150px;
+}
+
+header nav ul li:last-child input[type="search"]::placeholder {
+    opacity: 0.3;
+}
+
+header nav ul li:last-child input[type="search"]:focus {
+    width: 300px;
 }
 
 header nav ul li:last-child button[type="submit"] {
     padding: 5px 10px;
     cursor: pointer;
+}
+
+header nav ul li:last-child button[type="submit"]:hover {
+    background: var(--body-bg-color);
 }
 
 header nav ul li:last-child input[type="search"]::-webkit-search-cancel-button {
