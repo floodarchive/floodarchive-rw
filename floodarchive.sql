@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 Eyl 2022, 10:10:56
+-- Üretim Zamanı: 09 Eyl 2022, 11:02:36
 -- Sunucu sürümü: 10.4.21-MariaDB
 -- PHP Sürümü: 8.0.10
 
@@ -32,7 +32,8 @@ CREATE TABLE `floods` (
   `title` varchar(512) NOT NULL,
   `selftext` mediumtext NOT NULL,
   `full_link` varchar(512) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp()
+  `created` varchar(512) NOT NULL,
+  `created_utc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
