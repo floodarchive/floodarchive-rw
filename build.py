@@ -9,7 +9,7 @@ SUBREDDIT = "kopyamakarna"
 IGNORE_FLAIRS = ["META", "DUYURU"]
 API_BASE_URL = "https://api.pushshift.io/reddit/search/submission"
 
-cursor.execute("SELECT created_utc from floods ORDER BY id DESC LIMIT 1")
+cursor.execute("SELECT created_utc FROM floods ORDER BY id DESC LIMIT 1")
 after = cursor.fetchone()["created_utc"] or 1540846800  # Subreddit created_utc
 http = PoolManager()
 
