@@ -12,27 +12,36 @@
         <main>
             <div class="container">
                 <div class="title border-2">
-                    <div><b>Total flood:</b> {{ submissions|length }}</div>
-                    <div><b>Last flood date:</b> {{ last_flood_date }}</div>
-                </div>
-                {% for submission in submissions %}
-                <div class="post border-2">
-                    <div class="header">
-                        <span class="link">
-                            <a href="{{ submission.full_link }}" rel="nofollow"
-                                ><b>reddit</b></a
-                            >
-                        </span>
-                        <span class="created">{{ submission.created }}</span>
+                    <div>
+                        <b>Loaded floods:</b>
+                        <span id="loaded">0</span>/{{ total_flood }}
                     </div>
-                    <div class="body">
-                        <div class="topic"><h1>{{ submission.title }}</h1></div>
-                        <div class="message md">
-                            {{ submission.selftext|safe }}
+                    <div><b>Last build date:</b> {{ last_build_date }}</div>
+                </div>
+                <div id="scroller">
+                    <template id="post_template">
+                        <div class="post border-2">
+                            <div class="header">
+                                <span class="link">
+                                    <a href="#" rel="nofollow" id="full_link"
+                                        ><b>reddit</b></a
+                                    >
+                                </span>
+                                <span class="created" id="created">NULL</span>
+                            </div>
+                            <div class="body">
+                                <div class="topic">
+                                    <h1 id="title">NULL</h1>
+                                </div>
+                                <div class="message md" id="selftext">NULL</div>
+                            </div>
                         </div>
-                    </div>
+                    </template>
                 </div>
-                {% endfor %}
+                <br />
+                <div class="d-flex justify-content-center mt-3" id="sentinel">
+                    <div class="spinner-border" role="status"></div>
+                </div>
             </div>
         </main>
         {% include 'includes/scripts.html' %}
