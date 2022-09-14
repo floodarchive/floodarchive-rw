@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search Page</title>
+        {% include 'includes/styles.html' %}
+    </head>
+    <body>
+        {% include 'includes/header.html' %}
+        <main>
+            <div class="container">
+                <div class="title border-2">
+                    <div>
+                        {{ total_results }} <b>results found for query:</b> "{{
+                        query }}"
+                    </div>
+                </div>
+                {% for result in results %}
+                <div class="post border-2">
+                    <div class="header">
+                        <span class="link">
+                            <a
+                                href="{{ result.full_link }}"
+                                rel="nofollow"
+                                id="full_link"
+                                ><b>reddit</b></a
+                            >
+                        </span>
+                        <span class="created" id="created"
+                            >{{ result.created }}</span
+                        >
+                    </div>
+                    <div class="body">
+                        <div class="topic">
+                            <h1 id="title">{{ result.title }}</h1>
+                        </div>
+                        <div class="message md" id="selftext">
+                            {{ result.selftext|safe }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </body>
+</html>
