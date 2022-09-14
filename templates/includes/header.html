@@ -6,13 +6,14 @@
         <ul class="d-flex">
             <li><a href="{{ url_for('about') }}">about</a></li>
             <li>
-                <form action="">
+                <form action="/search" method="GET" id="searchForm">
                     <input
                         type="search"
-                        name="search"
+                        name="q"
                         class="border-2"
-                        id="searchInput"
                         placeholder="Search..."
+                        minlength="3"
+                        required
                     />
                     <button type="submit" class="border-2">Search</button>
                 </form>
