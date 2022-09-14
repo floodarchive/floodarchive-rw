@@ -5,45 +5,49 @@ from time import sleep
 
 app = Flask(__name__)
 
+cursor.execute("SELECT * FROM floods")
+floods = cursor.fetchall()
+
+cursor.execute("SELECT created_utc from floods ORDER BY id DESC LIMIT 1")
+last_row_created = dt.fromtimestamp(cursor.fetchone()["created_utc"]).ctime()
+
 @app.route("/")
 def index():
-    cursor.execute("SELECT COUNT(*) FROM floods")
-    total_row_count = cursor.fetchone()["COUNT(*)"]
-
-    cursor.execute("SELECT created_utc from floods ORDER BY id DESC LIMIT 1")
-    last_row_created = dt.fromtimestamp(cursor.fetchone()["created_utc"]).ctime()
-
-    return render_template("index.html", total_flood=total_row_count, last_build_date=last_row_created)
+    return render_template("index.html", total_floods=len(floods), last_build_date=last_row_created)
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-
-cursor.execute("SELECT * FROM floods")
-floods = cursor.fetchall()
-quantity = 10
-
 @app.route("/api/floods")
 def get_floods():
     sleep(0.5)
 
-    if request.args:
-        counter = int(request.args.get("c"))
+    counter = int(request.args.get("c"))
+    per_loading = 10
 
-        if counter == 0:
-            print(f"Returning floods 0 to {quantity}")
-            res = make_response(jsonify(floods[0: quantity]), 200)
+    if counter == 0:
+        print(f"Returning floods 0 to {per_loading}")
+        res = make_response(jsonify(floods[0: per_loading]), 200)
 
-        elif counter == len(floods):
-            print("No more floods!")
-            res = make_response(jsonify({}), 200)
+    elif counter == len(floods):
+        print("No more floods!")
+        res = make_response(jsonify({}), 200)
 
-        else:
-            print(f"Returning floods {counter} to {counter + quantity}")
-            res = make_response(jsonify(floods[counter: counter + quantity]), 200)
+    else:
+        print(f"Returning floods {counter} to {counter + per_loading}")
+        res = make_response(jsonify(floods[counter: counter + per_loading]), 200)
 
-        return res
+    return res
+
+@app.route("/search")
+def search_floods():
+    query = request.args.get("q")
+
+    cursor.execute(f"SELECT title, selftext, full_link, created FROM floods WHERE title LIKE '{query}%' OR selftext LIKE '{query}%' ORDER BY title, selftext")
+    results = cursor.fetchall()
+    
+    return render_template("search.html", query=query, results=results, total_results=len(results))
 
 
 if __name__ == "__main__":
